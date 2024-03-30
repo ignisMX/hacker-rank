@@ -65,13 +65,7 @@ public class GridChallenge {
 
     }
 
-    private static void printArray(String[] array) {
-        for (String element : array) {
-            System.out.print(element);
-        }
-        System.out.println("");
-    }
-
+    
     private static void printMatrix(String[][] matrix) {
         for (int row = 0; row < matrix.length; row++) {
             for (int col = 0; col < matrix[row].length; col++) {
