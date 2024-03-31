@@ -4,6 +4,8 @@
  */
 package pro.omaralvarez.hackerank;
 
+import java.util.List;
+
 /**
  *
  * @author ignis
@@ -20,6 +22,15 @@ public class PrintUtils {
     public static void printArray(int[] array) {
         for (int element : array) {
             System.out.print(element + " ");
+        }
+        System.out.println("");
+    }
+    
+    public static void printListOfNumbers(List<Integer> list){
+    
+        for(Integer number : list){
+        
+            System.out.print(number + " ");
         }
         System.out.println("");
     }
