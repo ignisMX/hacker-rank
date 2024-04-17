@@ -21,7 +21,7 @@ public class PalindromeIndex {
         var palSeven = "fcwnswtuhmyaljkqlqjjqlqkjlaymhutwsnwcwf";
         //hgygsvlfcwnswtuhmyaljkqlqjjqlqkjlaymhutwsnwcwflvsgygh
         var palEight = "fcwnswwsnwcwf";
-        palindromeIndex(palTwo);
+        palindromeIndex(palEight);
     }
 
     public static int palindromeIndex(String s) {
