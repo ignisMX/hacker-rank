@@ -7,6 +7,7 @@ package pro.omaralvarez.lambdas;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
@@ -35,7 +36,7 @@ public class LambdasListWithObjects {
         mapOne.put("Saurom", studentFour);
         
         Map<String, Student> mapTwo = new HashMap();
-        mapTwo.put("Alexis", studentOne);
+        mapTwo.put("Alexis", studentThree);
         mapTwo.put("Saurom", studentFive);
         System.out.println("------->");
         var listMap = List.of(mapOne, mapTwo);
@@ -123,6 +124,32 @@ class Student {
     public void setScore(Long score) {
         this.score = score;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Student other = (Student) obj;
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
 
     @Override
     public String toString() {
