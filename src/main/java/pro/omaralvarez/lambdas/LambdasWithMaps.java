@@ -5,11 +5,11 @@
 package pro.omaralvarez.lambdas;
 
 import java.util.Map;
+import java.util.Set;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Comparator;
 import java.util.HashSet;
-import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -45,6 +45,9 @@ public class LambdasWithMaps {
         filterMapAgeGreater18(listMap);
         System.out.println("------->");
         getDuplicatedStudents(listMap);
+        System.out.println("------->");
+        getNotDuplicatedStudents(listMap);
+        getOlderStudent(listMap);
         
     }
     
@@ -110,6 +113,27 @@ public class LambdasWithMaps {
                 .collect(Collectors.toMap(Student::getName, Function.identity()));
         
         result.entrySet().forEach(System.out::println);
+    }
+    
+    public static void getNotDuplicatedStudents(List<Map<String, Student>> list){
+        
+        Set<String> set = new HashSet<>();
+        
+        Map<String, Student> result = list.stream()
+                .flatMap(map -> map.values().stream())
+                .filter(student -> set.add(student.getName()))
+                .collect(Collectors.toMap(Student::getName, Function.identity()));
+        
+        result.entrySet().forEach(System.out::println);
+    }
+    
+    public static void getOlderStudent(List<Map<String, Student>> list){
+        
+        var student = list.stream().flatMap(map-> map.values().stream())
+                .sorted((studentOne, studentTwo)-> studentTwo.getAge() - studentOne.getAge())
+                .findFirst().get();
+        
+        System.out.println("older student: " + student);
     }
 }
 
