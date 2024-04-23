@@ -4,9 +4,9 @@
  */
 package pro.omaralvarez.hackerank;
 
+import java.util.Locale;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Locale;
 
 /**
  *
