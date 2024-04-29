@@ -48,6 +48,8 @@ public class LambdasWithMaps {
         System.out.println("------->");
         getNotDuplicatedStudents(listMap);
         getOlderStudent(listMap);
+        System.out.println("------->");
+        getNewerTwoStudents(listMap);
         
     }
     
@@ -134,6 +136,17 @@ public class LambdasWithMaps {
                 .findFirst().get();
         
         System.out.println("older student: " + student);
+    }
+    
+    public static void getNewerTwoStudents(List<Map<String, Student>> list) {
+    
+        var result = list.stream()
+                .flatMap(map -> map.values().stream())
+                .sorted((first, second) -> first.getAge() - second.getAge())
+                .limit(2)
+                .collect(Collectors.toMap(Student::getName, Function.identity()));
+        
+        result.entrySet().forEach(System.out::println);
     }
 }
 
