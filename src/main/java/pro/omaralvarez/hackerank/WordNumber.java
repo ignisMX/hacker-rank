@@ -14,6 +14,7 @@ import java.util.HashMap;
 public class WordNumber {
     
     public static void main(String[] args) throws Exception {
+        
         var numbers = "onesixeightfournine";
         var result = wordToNumber(numbers);
         System.out.println(result);
